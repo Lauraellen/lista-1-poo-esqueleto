@@ -1,8 +1,13 @@
 package br.inatel.cdg.algebra.reta;
 
 public class Ponto {
-    double x;
-    double y;
 
+    //atributos
+    public double x;
+    public double y;
+
+    public Ponto() {
+
+    }
 }
 

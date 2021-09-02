@@ -1,5 +1,7 @@
 package br.inatel.cdg.algebra.scene;
 
+import br.inatel.cdg.algebra.reta.Ponto;
+import br.inatel.cdg.algebra.reta.Reta;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,21 +16,29 @@ public class ScenePrincipal {
     private Label p1X, p1Y, p2X, p2Y; //Label representam rótulos
     private TextField textField1, textField2, textField3, textField4; //TextField Representam áreas de texto
 
+
     public void criaScenePrincipal(Stage stage){
+
+        Reta reta = new Reta();
+        double result = 0;
+
 
         //Criando os labels para os pontos e os campos de texto para os dados
         p1X = new Label("P1.x"); //rótulos
         textField1 = new TextField(); //área de texto onde vc digitara alguma coisa
+        reta.p1.x = 5.0;
 
         p1Y = new Label("P1.y");
         textField2 = new TextField();
+        reta.p1.y = 2.0;
 
         p2X = new Label("P2.x");
         textField3 = new TextField();
+        reta.p2.x = 2.0;
 
         p2Y = new Label("P2.y");
         textField4 = new TextField();
-
+        reta.p2.y = 2.0;
 
         //HBox é usado para agrupar elementos horizontalmente
         HBox grupoHorizontal1 = new HBox(p1X, textField1); //Passamos no construtor todos os elementos. Você poderá criar vários grupos horizontais
@@ -42,6 +52,7 @@ public class ScenePrincipal {
         btnAngular = new Button("C. Angular");
         //Criamos a ação que o botão responderá as ser pressionado
         btnAngular.setOnAction(evento -> {
+            reta.angular(reta.p1, reta.p2, result);
             //Aqui dentro é a ação que será executado ao pressionar o botão
             textField2.setText(textField1.getText());//Acessamos o componente textField1, pegamos o texto e colocaos em textField2
         });
