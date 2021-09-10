@@ -44,16 +44,16 @@ public class ScenePrincipal {
         btnAngular = new Button("C. Angular");
         //Criamos a ação que o botão responderá as ser pressionado
         btnAngular.setOnAction(evento -> {
-          //  reta.angular(reta.p1, reta.p2, result);
-            //Aqui dentro é a ação que será executado ao pressionar o botão
-            textField5.setText(textField1.getText());//Acessamos o componente textField1, pegamos o texto e colocaos em textField2
+
+            Reta reta  = construirReta();
+            textField5.setText("C. Angular: " + reta.angular());//Acessamos o componente textField1, pegamos o texto e colocaos em textField2
         });
 
         btnLinear = new Button("C. Linear");
         //Criamos a ação que o botão responderá as ser pressionado
         btnLinear.setOnAction(evento -> {
-            //Aqui dentro é a ação que será executado ao pressionar o botão
-            textField3.setText(textField1.getText());//Acessamos o componente textField1, pegamos o texto e colocaos em textField2
+            Reta reta  = construirReta();
+            textField6.setText("C. Linear: " + reta.linear());//Acessamos o componente textField1, pegamos o texto e colocaos em textField2
         });
 
         //Agora vamos criar a area que mostrará o que foi digitado
@@ -75,6 +75,18 @@ public class ScenePrincipal {
         stage.setTitle("Software Para Calculos de Álgebra Linear");
         stage.setScene(scene);
         stage.show();
+    }
+
+    //Função interna que cria uma reta!
+    private Reta construirReta(){
+        Ponto A = new Ponto(Double.parseDouble(textField1.getText()),
+                Double.parseDouble(textField2.getText()));
+
+        Ponto B = new Ponto(Double.parseDouble(textField3.getText()),
+                Double.parseDouble(textField4.getText()));
+
+        Reta reta = new Reta(A,B);
+        return reta;
     }
 
 }

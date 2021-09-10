@@ -16,7 +16,7 @@ public class Reta {
 
     // c. angular
     public double angular () {
-        double resultAngular = 0;
+        double resultAngular = 0.0;
 
         resultAngular = (B.getY() - A.getY()) / (B.getX() - A.getX());
         return resultAngular;
