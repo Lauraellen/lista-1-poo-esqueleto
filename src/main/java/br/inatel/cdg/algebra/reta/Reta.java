@@ -3,22 +3,32 @@ package br.inatel.cdg.algebra.reta;
 import com.sun.javafx.tk.Toolkit;
 
 public class Reta {
-    public Ponto p1;
-    public Ponto p2;
 
-    public Reta() {
+    //coordenadas A(x,Y) e B(x,y);
+    private Ponto A;
+    private Ponto B;
 
+    public Reta(Ponto A, Ponto B) {
+        this.A = A;
+        this.B = B;
     }
 
+
     // c. angular
-    public double angular (Ponto p1, Ponto p2, double result) {
-        result = (p2.y - p1.y) / (p2.x - p1.x);
-        return result;
+    public double angular () {
+        double resultAngular = 0;
+
+        resultAngular = (B.getY() - A.getY()) / (B.getX() - A.getX());
+        return resultAngular;
     }
 
     // c. linear
-    void linear(double result, Ponto p1, double linear) {
-        linear = p1.y - (result * p1.x);
+    public double linear() {
+        double resultLinear = 0;
+
+        resultLinear = A.getY() - (angular() * A.getX());
+
+        return resultLinear;
     }
 
 
